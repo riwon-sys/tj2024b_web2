@@ -1,0 +1,42 @@
+[ MVC 패턴 ]
+### 정의
+
+소프트웨어 공학에서 사용하는 디자인 패턴 중 하나
+
+### 목적
+
+프로그램을 깔끔하고 효율적으로 만들기 위해 사용되는 설계 방법
+
+### 종류
+
+- **MVC1**   |   controller(제어) + view(화면)
+
+    JSP 파일에서 화면(HTML)과 제어(로직)를 한 번에 작성하는 방법
+
+    - 장점
+
+        빠른 개발이 가능하지만 유지보수와 역할분담이 어렵다(과거에 주로 사용됨)
+
+
+    view / controller  ← 모델(DTO) → DAO
+
+- **MVC2**   |   controller(제어) + view(화면) 분리
+    JSP 파일에서는 단순(HTML) 화면 구현, Servlet에서 제어(로직) 작성하는 방법
+
+    - 장점
+        로직 / 화면 분리 → 파일의 수가 많아짐
+    강의에서는 console/JSP 프로젝트는 MVC2 설명
+    view(JSP)  ← 모델(DTO) → controller(servlet) ← 모델(DTO) → DAO
+
+- **MVC2 3Trie**   |   controller를 controller와 sercive 분리
+
+    controller의 역할을 조금 더 세분화해서 분리(Spring 프레임워크 사용 / 대규모 프로젝트)
+
+    - 장점
+
+        확장성이 뛰어나고 유지보수에 용이하다 → 파일관리 복잡도 상승
+
+
+    강의에서는 Spring 프로젝트는 MVC2 3Tire로 설명
+
+    view(JSP/React/Thymleaf)
