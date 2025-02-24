@@ -20,8 +20,8 @@ public class StudentService {
         return studentMapper.findAll();
     }
 
-    public int update(int sno){
-        return studentMapper.update(sno);
+    public int update(StudentDto studentDto){
+        return studentMapper.update(studentDto);
     }
 
     public int delete(int sno){

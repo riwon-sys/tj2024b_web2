@@ -25,8 +25,8 @@ public class StudentController {
     }
 
     @PutMapping
-    public int update(@RequestParam int sno){
-        return studentService.update(sno);
+    public int update(@RequestBody StudentDto studentDto){
+        return studentService.update(studentDto);
     }
 
     @DeleteMapping

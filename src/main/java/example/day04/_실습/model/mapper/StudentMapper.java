@@ -14,7 +14,7 @@ public interface StudentMapper {
     public List<StudentDto> findAll();
 
     @Update("update students set kor = #{kor}, math = #{math} where sno = #{sno}")
-    int update(int sno);
+    int update(StudentDto studentDto);
 
     @Delete("delete from students where sno = #{sno}")
     int delete(int sno);
