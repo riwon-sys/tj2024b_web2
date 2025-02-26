@@ -62,4 +62,21 @@ public class StudentController {
     }
 
 
+    // [6] 여러명의 학생 등록하기
+    @PostMapping("/save/all")
+    public boolean saveAll(@RequestBody List<Map<String, Object>> list){
+        System.out.println("StudentController.saveAll");
+        System.out.println("list = " + list);
+        return studentService.saveAll(list);
+    }
+    /*
+        [JS(fetch/axios) / TalendAPI] -----> HTTP -----> [JAVA]
+            JSON 알고 있음                    JSON 알아       JSON 몰라
+            body : { }
+            body : [ ]
+    */
+
+
+
+
 } // class end

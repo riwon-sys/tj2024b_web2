@@ -65,4 +65,18 @@ public interface StudentMapper {
     // [4] 삭제
     @Delete("delete from student where sno = #{sno}")
     public boolean delete ( int sno);
+
+
+    // [6] 여러명의 학생 등록하기 / 추상메소드는 {구현부}가 없다 / 동적 쿼리 활용(SQL문법이 아닌 mybatis 자체 문법 제공)
+    @Insert("""
+            <script>
+                insert into student (name, kor, math) values
+                    <foreach collection="list" item="student" separator=",">
+                       ( #{ student.name } , #{ student.kor } , #{ student.math } )\s
+                   </foreach>
+            </script>
+            """)
+    public boolean saveAll(List<Map<String, Object>> list);
+    // --> list 안에 3명의 학생 정보가 있다면
+    // insert into student( name , kor , math ) values ( '유재석' , 30 ,  40 ) , ( '강호동' , 70 ,  50 ), ( '신동엽' , 80 ,  20 )
 }
